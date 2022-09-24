@@ -16,6 +16,7 @@
 		86FFE0DF28DE872A00BE3ADF /* facedetectissueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFE0DE28DE872A00BE3ADF /* facedetectissueTests.swift */; };
 		86FFE0E928DE872A00BE3ADF /* facedetectissueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFE0E828DE872A00BE3ADF /* facedetectissueUITests.swift */; };
 		86FFE0EB28DE872A00BE3ADF /* facedetectissueUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFE0EA28DE872A00BE3ADF /* facedetectissueUITestsLaunchTests.swift */; };
+		86FFE0F828DE874200BE3ADF /* FaceFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFE0F728DE874200BE3ADF /* FaceFinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		86FFE0E428DE872A00BE3ADF /* facedetectissueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = facedetectissueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FFE0E828DE872A00BE3ADF /* facedetectissueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = facedetectissueUITests.swift; sourceTree = "<group>"; };
 		86FFE0EA28DE872A00BE3ADF /* facedetectissueUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = facedetectissueUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		86FFE0F728DE874200BE3ADF /* FaceFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				86FFE0C728DE872800BE3ADF /* AppDelegate.swift */,
 				86FFE0C928DE872800BE3ADF /* SceneDelegate.swift */,
 				86FFE0CB28DE872800BE3ADF /* ViewController.swift */,
+				86FFE0F728DE874200BE3ADF /* FaceFinder.swift */,
 				86FFE0CD28DE872800BE3ADF /* Main.storyboard */,
 				86FFE0D028DE872900BE3ADF /* Assets.xcassets */,
 				86FFE0D228DE872900BE3ADF /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			files = (
 				86FFE0CC28DE872800BE3ADF /* ViewController.swift in Sources */,
 				86FFE0C828DE872800BE3ADF /* AppDelegate.swift in Sources */,
+				86FFE0F828DE874200BE3ADF /* FaceFinder.swift in Sources */,
 				86FFE0CA28DE872800BE3ADF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +441,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2LUBQ2MTN3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = facedetectissue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -464,6 +469,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2LUBQ2MTN3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = facedetectissue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
