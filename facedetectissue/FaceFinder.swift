@@ -34,12 +34,18 @@ class FaceFinder {
         let actualHeight = inputImage.size.height * inputImage.scale
         let actualWidth = inputImage.size.width * inputImage.scale
         let translatedMinY = actualHeight - face.bounds.maxY // CIImage to UIKit coordinates
-        let boundingBox = CGRect(x: face.bounds.minX/actualWidth, y: translatedMinY/actualHeight, width: face.bounds.width/actualWidth, height: face.bounds.height/actualHeight)
-        
-        ret = boundingBox
-        faceDetector = nil
+        return CGRect(x: face.bounds.minX, y: translatedMinY, width: face.bounds.width, height: face.bounds.height)
       }
 
     return ret
   }
+  
+  static func cropImage(image: UIImage, toRect: CGRect) -> UIImage? {
+      // Cropping is available trhough CGGraphics
+      let cgImage :CGImage! = image.cgImage
+      let croppedCGImage: CGImage! = cgImage.cropping(to: toRect)
+
+      return UIImage(cgImage: croppedCGImage)
+  }
+
 }

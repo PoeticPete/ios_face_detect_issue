@@ -7,7 +7,22 @@
 
 import UIKit
 
+class TestViewModel {
+  var image: UIImage
+  var text: String
+  var faceFrame:CGRect
+  
+  init(image: UIImage, text: String, faceFrame:CGRect) {
+    self.image = image
+    self.text = text
+    self.faceFrame = faceFrame
+  }
+}
+
 class ViewController: UIViewController {
+  
+  var images:[UIImage] = []
+  var vms:[TestViewModel] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,27 +35,45 @@ class ViewController: UIViewController {
     button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
     button.widthAnchor.constraint(equalToConstant: 250).isActive = true
     button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    
     button.setTitle("Run face detect 100 times", for: .normal)
-//    button.setTitleColor(.black, for: .normal)
     button.addTarget(self, action: #selector(runFaceDetect), for: .touchUpInside)
     
+    let button2 = UIButton(type: .system)
+    button2.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(button2)
+    button2.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+    button2.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 12).isActive = true
+    button2.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    button2.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    button2.setTitle("Print images", for: .normal)
+    button2.addTarget(self, action: #selector(printImages), for: .touchUpInside)
+    
+
     
     
+    
+  }
+  
+  @objc func printImages() {
+    print(images[images.count-1], images.count)
   }
   
   @objc func runFaceDetect() {
     print("starting!")
     let serialQueue = DispatchQueue(label: "face_detect")
 
-    let testImage = makeTestImage()
+    let testImage = UIImage(named: "person")!.clone()!
     for i in 0..<100 {
       print(i)
       serialQueue.async {
-        print(FaceFinder.findFace(inputImage: testImage))
+        let faceRect = FaceFinder.findFace(inputImage: testImage)!  // We know there's a face in this one
+        print(faceRect)
+        let vm = TestViewModel(image: testImage, text: "too", faceFrame: faceRect)
+        self.vms.append(vm)
+        self.images.append(testImage.clone()!)
       }
     }
-    serialQueue.sync {
+    serialQueue.async {
       print("Ran face detect 100 times!")
     }
   }
@@ -61,3 +94,13 @@ class ViewController: UIViewController {
 
 }
 
+
+extension UIImage {
+    func clone() -> UIImage? {
+        guard let originalCgImage = self.cgImage, let newCgImage = originalCgImage.copy() else {
+            return nil
+        }
+
+        return UIImage(cgImage: newCgImage, scale: self.scale, orientation: self.imageOrientation)
+    }
+}
